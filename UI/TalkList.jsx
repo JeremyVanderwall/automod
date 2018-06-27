@@ -53,7 +53,9 @@ import $ from 'jquery';
 					<div>
 						<h1>LIST PAGE</h1>
 						<div>
+						{/*
 							<Link to = {newTalk}>Create Talk</Link> 
+						*/}
 						</div>
 						<table className="table" >
 							<tbody>

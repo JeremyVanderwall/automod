@@ -47,6 +47,11 @@ public class TalkController {
 	public ResponseEntity<Boolean> upVote(@PathVariable("talkId")String talkId, @RequestBody Question q){
 		return new ResponseEntity<Boolean>(service.upVote(talkId, q), HttpStatus.OK);
 	}
+	
+	@PostMapping("/delete/{talkId}")
+	public ResponseEntity<Boolean> deleteQuestion(@RequestBody String s, @PathVariable("talkId") String id){
+		return new ResponseEntity<Boolean>(service.deleteQuestion(id, s), HttpStatus.OK);
+	}
 }
 
 

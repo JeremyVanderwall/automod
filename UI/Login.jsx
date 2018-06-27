@@ -6,7 +6,9 @@ import { HashRouter, BrowserRouter as Router, Route, Link, withRouter} from 'rea
 class Login extends React.Component{
     constructor(props){
          super(props);
-         
+         this.state={			
+			message:''
+		};
          this.handleLogin=this.handleLogin.bind(this);
      }
 	 
@@ -24,7 +26,7 @@ class Login extends React.Component{
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
-			async: false,
+			async: true,
 			timeout: 3000,
             data: JSON.stringify( user),
 			error: function (jqXHR, exception) {
@@ -49,8 +51,12 @@ class Login extends React.Component{
 		
 		}).then(
 			(result) => {
-				
-				this.props.history.push("/list/" + user.name);
+				alert("the response is: " + result);
+				if ($.trim(result)){
+					this.props.history.push("/list/" + user.name);
+				}else{
+					this.setState({message:"Invalid Login"});
+				}
 			}
 		);
 		
@@ -61,6 +67,7 @@ class Login extends React.Component{
                      <div >
 						<div align="center" className="form" width="500px">
 						<h4 align="center">login</h4>
+						<div align="center">{this.state.message}</div>
 				
 						
 				

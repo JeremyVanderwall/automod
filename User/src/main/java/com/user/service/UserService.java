@@ -36,7 +36,7 @@ public class UserService {
 		if (u2.isPresent()) {
 			return null;
 		}
-		return db.save(u);
+		return db.insert(u);
 	}
 
 }

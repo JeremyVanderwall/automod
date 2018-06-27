@@ -3,6 +3,8 @@ package com.talk.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +56,13 @@ public class TalkService {
 		db.save(t);
 		
 		return true;
+	}
+
+	public Boolean deleteQuestion(String id, String s) {
+		Talk t = this.getTalk(id);
+		t.setQuestions(t.getQuestions().stream().filter(q->q.getQuestion().equals(s)).collect(Collectors.toList()));
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

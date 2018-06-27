@@ -33,9 +33,10 @@ class Talk extends React.Component{
 				</div>);
 		}
 		return(
-			<div>
-				<NewQuestion id = {this.state.talk.id} user = {this.state.user} />
+			<div className ='rowC'>
 				<Questions talk = {this.state.talk} uid={this.state.user}/>
+				<NewQuestion id = {this.state.talk.id} user = {this.state.user} />
+				
 			</div>);
 		
 	}

@@ -108,7 +108,7 @@ class Questions extends React.Component{
 
 		return (
 			<div>
-				<h1>LIST PAGE</h1>
+				<h1>Question List</h1>
 				<table className="table" >
 					<tbody>
 						<tr>
